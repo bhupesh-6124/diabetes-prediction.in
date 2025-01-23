@@ -5,6 +5,7 @@ import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
+import streamlit as st
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your_fallback_key')
@@ -15,6 +16,8 @@ db = SQLAlchemy(app)
 
 # Load the trained model
 model= joblib.load('diabetes_model.pkl')
+
+st.title("Diabetes Prediction App")
 
 
 # Initialize the database
