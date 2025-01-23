@@ -1,0 +1,61 @@
+/* Center everything in the page */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9; /* Light background */
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the welcome message and links */
+.container {
+    text-align: center; /* Center text horizontally */
+    background-color: #fff; /* White background */
+    padding: 20px; /* Add some space inside the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    min-width: 300px;
+}
+
+/* Welcome text style */
+.welcome-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker text */
+}
+
+/* Links container */
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between links */
+}
+
+/* Styling for Register and Login links */
+.links a {
+    text-decoration: none;
+    background-color: #4962a4;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Zoom effect on buttons */
+.links a:hover, .links a:focus {
+    transform: scale(1.1); /* Zoom in effect */
+    outline: none; /* Remove focus outline */
+}
+
+/* Zoom out container when not focused */
+.links a:not(:hover):not(:focus) {
+    transform: scale(1); /* Back to original size */
+}
+
+.links a:hover {
+    background-color: #274a50; /* Darker blue on hover */
+}

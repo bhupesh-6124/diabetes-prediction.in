@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    position: relative; /* Ensures relative positioning for child elements */
+}
+
+.content-box {
+    border: 2px solid #b68d40;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.progress-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.progress-bar {
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    border: 2px solid black; 
+    border-radius: 10px;
+}
+
+.progress-bar .diabetic {
+    background-color: #f44336; /* Red for diabetic */
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.progress-bar .non-diabetic {
+    background-color: #4caf50; /* Green for non-diabetic */
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.result {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+button.make-another {
+    background-color: #1f77b4;
+}
+
+.logout {
+    background-color: #f44336;
+    position: absolute; /* Positioning the logout button */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+}

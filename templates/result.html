@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles3.css') }}"></head>
+<body>
+    <div class="content-box">
+        <h1 style="text-align: center;">Result</h1>
+
+        <div class="result">
+            <strong>Prediction:</strong> {{ result or "Unknown" }}
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <!-- Non-diabetic percentage -->
+                <div class="non-diabetic" style="width: {{ non_diabetic_probability or 0 }}%;">
+                    {{ non_diabetic_probability or 0 }}%
+                </div>
+                <!-- Diabetic percentage -->
+                <div class="diabetic" style="width: {{ diabetic_probability or 0 }}%;">
+                    {{ diabetic_probability or 0 }}%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Make another prediction button outside the content box -->
+    <div class="button-container">
+        <a href="/predict">
+            <button class="make-another">Make Another Prediction</button>
+        </a>
+    </div>
+
+    <!-- Logout button moved to the corner -->
+    <a href="/logout">
+        <button class="logout">Logout</button>
+    </a>
+</body>
+</html>

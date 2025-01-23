@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-heading">Register</h1>
+    
+    <!-- Flash Messages for Errors and Success -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{% if category == 'danger' %}error{% elif category == 'success' %}success{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Registration Form -->
+    <form action="/register" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label for="contact">Contact No:</label><br>
+        <input type="number" name="contact" id="contact"required oninput="validateContactNumber(this)"><br><br>
+
+<script>
+    function validateContactNumber(input) {
+        // Ensure the value length is exactly 10 digits
+        if (input.value.length > 10) {
+            input.value = input.value.slice(0, 10);  // Limit to 10 digits
+        }
+    }
+</script>
+
+        <label for="user_id">User ID:</label><br>
+        <input type="text" name="user_id" required><br><br>
+        
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <button type="submit" class="submit-btn">Register</button>
+    </form>
+    <br>
+    <div class="login-link">
+        <a href="/login">Already have an account? Login here.</a>
+    </div>
+</div>
+</body>
+</html>
