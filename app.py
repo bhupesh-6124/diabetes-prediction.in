@@ -5,8 +5,6 @@ import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
-import streamlit as st
-import subprocess
 
 
 app = Flask(__name__)
@@ -18,21 +16,6 @@ db = SQLAlchemy(app)
 
 # Load the trained model
 model= joblib.load('diabetes_model.pkl')
-
-# Start Flask app in the background
-flask_process = subprocess.Popen(["python", "app.py"])
-
-# Streamlit interface
-st.title("Diabetes Prediction App")
-st.write("This is an embedded Flask app running in Streamlit.")
-
-# Embed Flask app using iframe
-st.components.v1.iframe("http://127.0.0.1:5001", height=800, scrolling=True)
-
-# Gracefully terminate Flask when Streamlit stops
-if st.button("Stop Flask App"):
-    flask_process.terminate()
-    st.warning("Flask app stopped!")
 
 
 # Initialize the database
