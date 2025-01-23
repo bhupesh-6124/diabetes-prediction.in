@@ -17,6 +17,8 @@ db = SQLAlchemy(app)
 
 # Load the trained model
 model= joblib.load('diabetes_model.pkl')
+webbrowser.open_new("http://127.0.0.1:5000")
+
 
 
 
@@ -192,7 +194,7 @@ def logout():
     flash('You have been logged out.')
     return redirect(url_for('home'))
 
-webbrowser.open_new("http://127.0.0.1:5000")
+
 
 if __name__ == '__main__':
     init_db()
