@@ -5,7 +5,8 @@ import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
-import streamlit as st
+import streamlit
+import webbrowser
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your_fallback_key')
@@ -17,7 +18,6 @@ db = SQLAlchemy(app)
 # Load the trained model
 model= joblib.load('diabetes_model.pkl')
 
-st.title("Diabetes Prediction App")
 
 
 # Initialize the database
@@ -192,6 +192,7 @@ def logout():
     flash('You have been logged out.')
     return redirect(url_for('home'))
 
+webbrowser.open_new("http://127.0.0.1:5000")
 
 if __name__ == '__main__':
     init_db()
