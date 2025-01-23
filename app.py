@@ -7,6 +7,8 @@ import sqlite3
 import os
 import streamlit
 import webbrowser
+import threading
+
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your_fallback_key')
@@ -17,8 +19,10 @@ db = SQLAlchemy(app)
 
 # Load the trained model
 model= joblib.load('diabetes_model.pkl')
-webbrowser.open_new("http://127.0.0.1:5000")
 
+
+def open_browser():
+    webbrowser.open_new("http://127.0.0.1:5000")
 
 
 
@@ -197,5 +201,6 @@ def logout():
 
 
 if __name__ == '__main__':
+    threading.Timer(1, open_browser).start()
     init_db()
     app.run(debug=False)
