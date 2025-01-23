@@ -4,3 +4,4 @@ flask_sqlalchemy
 numpy
 joblib
 scikit-learn
+webbrowser
