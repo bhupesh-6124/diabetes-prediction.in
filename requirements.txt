@@ -2,4 +2,4 @@ streamlit
 flask
 flask_sqlalchemy
 numpy
-
+joblib
