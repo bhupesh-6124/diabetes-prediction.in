@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash, session, url_for
 from flask_sqlalchemy import SQLAlchemy
-import joblib
+from sklearn.externals import joblib
 import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Load the trained model
-model = joblib.load('diabetes_model.pkl')
+mjoblib.dump(model, 'diabetes_model.pkl')
 
 
 # Initialize the database
